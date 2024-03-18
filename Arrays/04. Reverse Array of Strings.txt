@@ -1,0 +1,19 @@
+using System;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            string[] items = Console.ReadLine().Split();
+            Array.Reverse(items);
+            Console.WriteLine(string.Join(" ",items));
+
+
+
+
+        }
+    }
+}

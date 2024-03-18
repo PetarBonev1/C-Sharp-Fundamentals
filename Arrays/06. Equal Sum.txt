@@ -1,0 +1,43 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            int sym2 = 0;
+            int sym1 = 0;
+            int[] arr1 = Console.ReadLine()
+               .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+               .Select(int.Parse)
+               .ToArray();
+         
+            for (int i = 0; i <= arr1.Length - 1; i++)
+            {               
+                for (int j = 0; j < i; j++)
+                {
+                    sym1 = sym1 + arr1[j];
+
+                }
+                for (int j = i + 1; j <= arr1.Length - 1; j++)
+                {
+                    sym2 = sym2 + arr1[j];
+                }
+                if (sym1 == sym2)
+                {
+                    string line = String.Format("{0}", i, arr1[i]);
+                    Console.WriteLine(line);
+                    return;
+                }
+                sym1 = 0;
+                sym2 = 0;
+            }
+            Console.WriteLine("no");
+
+
+
+        }
+    }
+}
