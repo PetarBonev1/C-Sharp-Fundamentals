@@ -1,0 +1,47 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            PrintSmallestNum();
+            
+
+
+
+
+
+        }
+
+        static void PrintSmallestNum()
+        {
+
+            int num1 = int.Parse(Console.ReadLine());
+            int num2 = int.Parse(Console.ReadLine());
+            int num3 = int.Parse(Console.ReadLine());
+            int sum = 0;
+            sum = num1 + num2;
+            sum-=num3;
+            Console.WriteLine(sum);
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+    }
+}

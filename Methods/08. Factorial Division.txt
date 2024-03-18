@@ -1,0 +1,59 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            PrintFact();
+
+
+
+
+
+
+        }
+
+        static void PrintFact()
+        {
+
+
+            double fact1 = 1;
+            double fact2 = 1;
+            double num1 = double.Parse(Console.ReadLine());
+            double num2 = double.Parse(Console.ReadLine());
+            for (int i = 1; i <=num1; i++)
+            {
+                fact1*=i;
+            }
+            
+            for (int i = 1; i <=num2; i++)
+            {
+                fact2 *= i;
+            }
+            double sum = fact1 / fact2;
+            Console.WriteLine($"{sum:F2}");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+    }
+}

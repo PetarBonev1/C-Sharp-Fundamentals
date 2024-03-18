@@ -1,0 +1,50 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            PrintNumOfVol();
+            
+
+
+
+
+
+        }
+
+        static void PrintNumOfVol()
+        {
+
+            string sentence = Console.ReadLine().ToLower();
+            int total = 0;
+            for (int i = 0; i < sentence.Length; i++)
+            {
+                if ((sentence[i] == 'a' || sentence[i] == 'e' || sentence[i] == 'i' || sentence[i] == 'o' || sentence[i] == 'u'))
+                {
+                    total++;
+                }
+            }
+            Console.WriteLine(total);
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+    }
+}

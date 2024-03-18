@@ -1,0 +1,52 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+
+
+            calculator();
+
+
+
+
+        }
+
+        static void calculator()
+        {
+            string method = Console.ReadLine();
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            if (method== "add")
+            {
+                
+                Console.WriteLine(a+b);
+            }
+            else if (method== "multiply")
+            {
+                Console.WriteLine(a*b);
+            }
+            else if(method== "subtract")
+            {
+                Console.WriteLine(a-b);
+            }
+            else if (method== "divide")
+            {
+                Console.WriteLine(a/b);
+            }
+            
+            
+
+            
+        }
+        
+
+
+        
+    }
+}

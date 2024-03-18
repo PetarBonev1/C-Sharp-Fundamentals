@@ -1,0 +1,44 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+           PrintString
+                ();
+            
+
+
+
+
+        }
+
+        static void PrintString()
+        {
+
+            int num = int.Parse(Console.ReadLine());           
+            int power = int.Parse(Console.ReadLine());
+            double pow_ab = Math.Pow(num, power);
+            Console.WriteLine(pow_ab);
+
+
+
+
+
+
+
+
+
+
+
+        }
+        
+
+
+        
+    }
+}

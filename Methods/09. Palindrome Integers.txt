@@ -1,0 +1,61 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            CharLenght();
+
+
+
+
+
+
+
+        }
+
+        static void CharLenght()
+        {
+
+            
+            string input;
+            while ((input = Console.ReadLine()) != "END")
+            {
+                int num = int.Parse(input);
+                int n, reverse = 0, rem;
+                n = num;
+                while (n != 0)
+                {
+                    rem = n % 10;
+                    reverse = reverse * 10 + rem;
+                    n /= 10;
+                }
+                if (num==reverse)
+                {
+                    Console.WriteLine("true"); 
+                }
+                else
+                {
+                    Console.WriteLine("false");
+                }
+                
+
+
+            }
+
+
+        }
+
+
+
+
+
+
+
+    }
+
+}

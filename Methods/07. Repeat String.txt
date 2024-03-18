@@ -1,0 +1,44 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+           PrintString
+                ();
+            
+
+
+
+
+        }
+
+        static void PrintString()
+        {
+
+            string asd = Console.ReadLine();
+            int counts = int.Parse(Console.ReadLine());
+            for (int i = 1; i <=counts; i++)
+            {
+                Console.Write(asd);
+            }
+            
+
+            
+            
+            
+            
+            
+
+            
+        }
+        
+
+
+        
+    }
+}

@@ -1,0 +1,71 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            CharLenght();
+
+
+
+
+
+
+
+        }
+
+        static void CharLenght()
+        {
+
+            int number = int.Parse(Console.ReadLine());
+
+
+            for (int i = 1; i <= number; i++)
+            {
+                int n = i;
+                int t = i;
+                var sum = 0;
+                bool isDevidableBy8 = false;
+                bool hasOddNum = false;
+                while (n > 0)
+                {
+                    sum = sum + (n % 10);
+                    n = n / 10;
+                }
+                if (sum % 8 == 0)
+                {                   
+                    isDevidableBy8 = true;
+                }
+                while (t > 0)
+                {
+                    int rem = t % 10;
+                    if (rem % 2 == 0)
+                    {
+                        t = t / 10;
+                    }
+                    else
+                    {                        
+                        hasOddNum = true;
+                        t = t / 10;
+                    }
+                }
+                if (isDevidableBy8 && hasOddNum)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+
+
+
+
+
+
+
+        }
+
+    }
+}

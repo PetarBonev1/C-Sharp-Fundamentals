@@ -1,0 +1,58 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+           PrintString
+                ();
+            
+
+
+
+
+        }
+
+        static void PrintString()
+        {
+
+            int num = int.Parse(Console.ReadLine());           
+            string action = Console.ReadLine();
+            int num2 = int.Parse(Console.ReadLine());
+            if (action=="+")
+            {
+                Console.WriteLine(num+num2);
+            }
+            else if (action=="-")
+            {
+                Console.WriteLine(num-num2);
+            }
+            else if (action=="*")
+            {
+                Console.WriteLine(num*num2);
+            }
+            else
+            {
+                Console.WriteLine(num/num2);
+            }
+
+
+
+
+
+
+
+
+
+
+        }
+        
+
+
+        
+    }
+}

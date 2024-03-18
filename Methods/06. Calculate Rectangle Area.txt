@@ -1,0 +1,39 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+           RectangleArea();
+            
+
+
+
+
+        }
+
+        static void RectangleArea()
+        {
+            
+            int height = int.Parse(Console.ReadLine());
+            int width = int.Parse(Console.ReadLine());
+            Console.WriteLine(height*width);
+
+            
+            
+            
+            
+            
+
+            
+        }
+        
+
+
+        
+    }
+}
