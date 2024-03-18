@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            List<int> numbers = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToList();
+
+            string command = Console.ReadLine();
+            string[] commandInfo = command.Split();
+
+
+            while (commandInfo[0] != "end")
+            {
+                if (commandInfo[0] == "Delete")
+                {
+                    int number = int.Parse(commandInfo[1]);
+                    
+                    numbers.RemoveAll(item => item == number);
+                }
+                else
+                {
+                    int number = int.Parse(commandInfo[1]);
+                    int index = int.Parse(commandInfo[2]);
+                    numbers.Insert(index, number);
+                }
+                command = Console.ReadLine();
+                commandInfo = command.Split();
+            }
+            Console.WriteLine(string.Join(" ", numbers));
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+    }
+
+}
+

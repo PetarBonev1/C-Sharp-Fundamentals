@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            List<int> numbers = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToList();
+            int maxCapacity = int.Parse(Console.ReadLine());
+            string command = Console.ReadLine();
+            string [] commandInfo = command.Split();
+
+
+            while (commandInfo[0] != "end")
+            {
+                if (commandInfo[0]=="Add")
+                {
+                    int number = int.Parse(commandInfo[1]);
+                    numbers.Add(number);
+                }
+                else
+                {
+                    for (int i = 0; i < numbers.Count-1; i++)
+                    {
+                        int number = int.Parse(commandInfo[0]);
+                        int CurrentCount = number + numbers[i];
+                        if (CurrentCount<=maxCapacity)
+                        {
+                            
+                            numbers.RemoveAt(i);
+                            numbers.Insert(i, CurrentCount);
+                            break;
+
+                        }
+                    }
+                }
+                command = Console.ReadLine();
+                commandInfo = command.Split();
+            }
+            Console.WriteLine(string.Join(" ", numbers));
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+    }
+
+}
+

@@ -1,0 +1,102 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            List<int> numbers = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToList();
+
+            string command = Console.ReadLine();
+            string[] commandInfo = command.Split();
+            while (commandInfo[0] != "End")
+            {
+                if (commandInfo[0] == "Add")
+                {
+                    int number = int.Parse(commandInfo[1]);
+                    numbers.Add(number);
+                }
+                else if (commandInfo[0] == "Insert")
+                {
+                    int index1 = int.Parse(commandInfo[2]);
+                    if (index1<0 ||index1>numbers.Count-1)
+                    {
+                        Console.WriteLine("Invalid index");
+                    }
+                    else
+                    {
+                    int number = int.Parse(commandInfo[1]);
+                    int index = int.Parse(commandInfo[2]);
+                    numbers.Insert(index, number);
+
+                    }
+                }
+                else if (commandInfo[0] == "Remove")
+                {
+                    int index1 = int.Parse(commandInfo[1]);
+                    if (index1 < 0 || index1 > numbers.Count-1)
+                    {
+                        Console.WriteLine("Invalid index");
+                    }
+                    else
+                    {
+                    int num = int.Parse(commandInfo[1]);
+                    numbers.RemoveAt(num);
+
+                    }
+                }
+                else if (commandInfo[1] == "left")
+                {
+                    int rotations = int.Parse(commandInfo[2]);
+                    for (int i = 0; i < rotations; i++)
+                    {
+                        int number = (numbers[0]);
+                        numbers.Insert(numbers.Count, number);
+                        numbers.RemoveAt(0);
+                    }
+                }
+                else if (commandInfo[1] == "right")
+                {
+                    int rotations = int.Parse(commandInfo[2]);
+                    for (int i = 0; i < rotations; i++)
+                    {
+                    int number =numbers.Last();
+                    numbers.Insert(0, number);
+                    numbers.RemoveAt(numbers.Count-1);
+
+                    }
+                    
+                }
+
+                command = Console.ReadLine();
+                commandInfo = command.Split();
+
+            }
+            Console.WriteLine(string.Join(" ", numbers));
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+    }
+
+}
+
