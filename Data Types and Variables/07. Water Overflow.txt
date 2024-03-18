@@ -1,0 +1,25 @@
+using System;
+
+namespace DataExecise
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int total = 0;
+            int max = 255;
+            for (int i = 1; i <=n; i++)
+            {
+                int liters = int.Parse(Console.ReadLine());
+                total += liters;
+                if (total>max)
+                {                   
+                    Console.WriteLine("Insufficient capacity!");
+                    total -= liters;
+                }               
+            }
+                Console.WriteLine(total);
+        }
+    }
+}

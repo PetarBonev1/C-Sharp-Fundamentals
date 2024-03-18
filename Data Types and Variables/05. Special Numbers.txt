@@ -1,0 +1,30 @@
+using System;
+
+namespace DataExecise
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int total = 0;
+            int num = 0;
+            bool toe = false;
+            for (int sum = 1; sum <= n; sum++)
+            {
+                num = sum;
+                while (sum > 0)
+                {
+                    total += sum % 10;
+                    sum = sum / 10;
+                }
+                toe = (total == 5) || (total == 7) || (total == 11);
+                total = 0;
+                sum = num;
+                Console.WriteLine("{0} -> {1}", num, toe);
+            }
+
+
+        }
+    }
+}
