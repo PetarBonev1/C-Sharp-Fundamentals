@@ -1,0 +1,133 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            List<Team> teams = new List<Team>();
+            for (int i = 0; i < n; i++)
+            {
+                string[] inputTokens = Console.ReadLine()
+                    .Split("-", StringSplitOptions.RemoveEmptyEntries)
+                    .ToArray();
+
+                string user = inputTokens[0];
+                string teamName = inputTokens[1];
+
+                if (teams.Select(x => x.name).Contains(teamName))
+                {
+                    Console.WriteLine($"Team {teamName} was already created!");
+                    continue;
+                }
+
+                if (teams.Select(x => x.Creator).Contains(user))
+                {
+                    Console.WriteLine($"{user} cannot create another team!");
+                    continue;
+                }
+
+                Team currentTeam = new Team(teamName, user);
+
+                teams.Add(currentTeam);
+                Console.WriteLine($"Team {teamName} has been created by {user}!");
+            }
+
+            string input;
+            while ((input = Console.ReadLine()) != "end of assignment")
+            {
+                string[] inputTokens = input
+                    .Split("->", StringSplitOptions.RemoveEmptyEntries)
+                    .ToArray();
+
+                string teamMember = inputTokens[0];
+                string teamName = inputTokens[1];
+
+                Team team = teams.FirstOrDefault(x => x.name == teamName);
+                if (team is null)
+                {
+                    Console.WriteLine($"Team {teamName} does not exist!");
+                    continue;
+                }
+                if (team.Creator == teamMember || teams.SelectMany(x => x.Members).Contains(teamMember))
+                {
+                    Console.WriteLine($"Member {teamMember} cannot join team {teamName}!");
+                    continue;
+                }
+                team.Members.Add(teamMember);
+            }
+
+            List<Team> orderedTeamdByCountAndName = teams
+                .Where(x => x.Members.Count != 0)
+                .OrderByDescending(x => x.Members.Count)
+                .ThenBy(x => x.name)
+                .ToList();
+
+            List<Team> disbandTeams = teams
+                .Where(x => x.Members.Count == 0)
+                .OrderBy(x => x.name)
+                .ToList();
+
+            foreach (Team team in orderedTeamdByCountAndName)
+            {
+                Console.WriteLine(team);
+            }
+            Console.WriteLine("Teams to disband:");
+            foreach (var team in disbandTeams)
+            {
+                Console.WriteLine(team.name);
+            }
+
+        }
+
+    }
+
+    public class Team
+    {
+        public Team(string name, string creator)
+        {
+            this.name = name;
+            Creator = creator;
+        }
+
+        public string name { get; set; }
+
+        public string Creator { get; set; }
+
+        public List<string> Members { get; set; } = new List<string>();
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(name);
+            sb.AppendLine($"- {Creator}");
+
+            List<string> orderedMembers = Members
+                .OrderBy(x => x)
+                .ToList();
+
+
+
+            foreach (var member in orderedMembers)
+            {
+                sb.AppendLine($"-- {member}");
+            }
+            return sb.ToString().TrimEnd('\n');
+        }
+    }
+
+
+
+
+
+
+}
+
+
+

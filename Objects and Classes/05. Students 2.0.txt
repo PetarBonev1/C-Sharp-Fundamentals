@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+
+List<Student> students = new List<Student>();
+
+string line = Console.ReadLine();
+
+while (line != "end")
+{
+    string[] tokens = line.Split();
+
+    string firstName = tokens[0];
+    string lastName = tokens[1];
+    int age = int.Parse(tokens[2]);
+    string city = tokens[3];
+
+    bool studentExist = false;
+
+    foreach (var student in students)
+    {
+        if (student.Firstname == firstName && student.lastName == lastName)
+        {
+            student.Age = age;
+            student.City = city;
+            studentExist = true;
+            break;
+        }
+    }
+
+    if (!studentExist)
+    {
+
+        Student student = new Student()
+        {
+            Firstname = firstName,
+            lastName = lastName,
+            Age = age,
+            City = city
+        };
+        students.Add(student);
+    }
+
+    line = Console.ReadLine();
+}
+
+string filterCity = Console.ReadLine();
+
+foreach (Student student in students)
+{
+    if (student.City == filterCity)
+    {
+        Console.WriteLine($"{student.Firstname} {student.lastName} is {student.Age} years old.");
+    }
+}
+
+
+public class Student
+{
+    public string Firstname { get; set; }
+    public string lastName { get; set; }
+    public int Age { get; set; }
+
+    public string City { get; set; }
+}
+
+

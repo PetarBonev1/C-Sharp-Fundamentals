@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            string[] words = Console.ReadLine().Split();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                Random random = new Random();
+                int RandomIndex = random.Next(0, words.Length);
+
+                string currentWord = words[i];
+                string wordToSwap = words[RandomIndex];
+                words[i] = wordToSwap;
+                words[RandomIndex] = currentWord;
+
+            }
+            Console.WriteLine(string.Join(Environment.NewLine,words));
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+    }
+
+}
+
