@@ -1,0 +1,36 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            
+            int n = int.Parse(Console.ReadLine());
+            int j = int.Parse(Console.ReadLine());
+            for (int i = j; i <=10; i++)
+            {
+
+                                                
+                int result = i * n; 
+            Console.WriteLine($"{n} X {i} = {result}");
+                                                            
+            }
+
+                if (j>10)
+                {
+                    Console.WriteLine($"{n} X {j} = {n*j}");
+
+                    return;
+                }
+
+
+
+
+
+        }
+    }
+}

@@ -1,0 +1,25 @@
+using System;
+using System.Linq;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            
+            
+
+            for (int i = 3; i <=99; i+=3)
+            {
+                Console.WriteLine(i);
+            }
+
+
+
+
+
+
+        }
+    }
+}
