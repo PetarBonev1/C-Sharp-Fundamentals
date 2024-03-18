@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            Dictionary<string, int> counts = new Dictionary<string, int>();
+
+            string command = Console.ReadLine();
+            int quantity = int.Parse(Console.ReadLine());
+
+            while (command != "stop")
+            {
+
+                if (counts.ContainsKey(command))
+                {
+                    counts[command] += quantity;
+                }
+                else
+                {
+                    counts.Add(command, quantity);
+
+                }
+
+                command = Console.ReadLine();
+                if (command=="stop")
+                {
+                    break;
+                }
+                else
+                {
+                quantity = int.Parse(Console.ReadLine());
+                }
+            }
+            foreach (var word in counts)
+            {
+                Console.WriteLine($"{word.Key} -> {word.Value}");
+            }
+
+
+
+
+
+
+
+        }
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+

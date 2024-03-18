@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            Dictionary<string, List<string>> company = new Dictionary<string, List<string>>();
+            string command = Console.ReadLine();
+            string[] commandInfo = command.Split(" -> ", StringSplitOptions.RemoveEmptyEntries);
+
+            while (commandInfo[0] != "End")
+            {
+                string companyName = commandInfo[0];
+                string employeeId = (commandInfo[1]);
+
+
+                if (company.ContainsKey(commandInfo[0]))
+                {
+                    if (!company[companyName].Contains(employeeId))
+                    {
+                     company[companyName].Add(employeeId);
+                    }
+                }
+                else
+                {
+                    company.Add(companyName, new List<string>());
+                    company[companyName].Add(employeeId);
+                }
+                command = Console.ReadLine();
+                commandInfo = command.Split(" -> ", StringSplitOptions.RemoveEmptyEntries);
+            }
+            foreach (var course in company)
+            {
+                Console.WriteLine($"{course.Key}");
+
+                foreach (var student in course.Value)
+                {
+                    Console.WriteLine($"-- {student}");
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+        }
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+

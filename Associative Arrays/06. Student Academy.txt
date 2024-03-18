@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            Dictionary<string, List<double>> students = new Dictionary<string, List<double>>();
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < n; i++)
+            {
+                string Name = Console.ReadLine();
+                double grade = double.Parse(Console.ReadLine());
+                                
+
+                if (students.ContainsKey(Name))
+                {
+                    students[Name].Add(grade);
+                }
+                else
+                {
+                    students.Add(Name, new List<double>());
+                    students[Name].Add(grade);
+                }
+
+                
+            }
+            foreach (var student in students)
+            {
+
+                if (student.Value.Average() >= 4.50)
+                {
+                    Console.WriteLine($"{student.Key} -> {student.Value.Average():f2}");
+                }
+
+
+
+                //Console.WriteLine($"{course.Key}: {courses[course.Key].Count}");
+                //
+                //foreach (var student in course.Value)
+                //{
+                //    Console.WriteLine($"-- {student}");
+                //}
+            
+            }
+
+
+
+
+
+
+
+
+
+        }
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+

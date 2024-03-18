@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+
+            Dictionary<string, List<string>> courses = new Dictionary<string, List<string>>();
+            string command = Console.ReadLine();
+            string[] commandInfo = command.Split(" : ",StringSplitOptions.RemoveEmptyEntries);
+
+            while (commandInfo[0] != "end")
+            {
+                string courseName = commandInfo[0];
+                string studentName = (commandInfo[1]);
+                
+
+                if (courses.ContainsKey(commandInfo[0]))
+                {
+                    courses[courseName].Add(studentName);
+                }
+                else
+                {
+                    courses.Add(courseName,new List<string>());
+                    courses[courseName].Add(studentName);
+                }
+                command = Console.ReadLine();
+                commandInfo = command.Split(" : ", StringSplitOptions.RemoveEmptyEntries);
+            }
+            foreach (var course in courses)
+            {
+                Console.WriteLine($"{course.Key}: {courses[course.Key].Count}");
+                
+                foreach (var student in course.Value)
+                {
+                    Console.WriteLine($"-- {student}");
+                }
+                
+            }
+
+
+
+
+
+
+
+
+
+        }
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+

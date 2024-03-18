@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace TriplesOfLatinLetters
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            int[] numbers = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToArray();
+            
+            SortedDictionary<int, int> SortedNUmbers = new SortedDictionary<int, int>();
+
+            foreach (var number in numbers)
+            {
+                if (! SortedNUmbers.ContainsKey(number))
+                {
+                    SortedNUmbers.Add(number, 0);
+                }
+                SortedNUmbers[number]++;
+            }
+
+            foreach (var number in SortedNUmbers)
+            {
+                Console.WriteLine($"{number.Key} -> {number.Value}");
+            }
+        }
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
